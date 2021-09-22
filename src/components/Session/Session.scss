@@ -1,0 +1,57 @@
+.overflow {
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background-color: inherit;
+  opacity: 0.5;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  opacity: 0.5;
+  border-radius: 10px;
+}
+.session-info {
+  overflow-y: auto;
+  .sticky-header {
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow-y: hidden;
+  }
+  .session-info-wrapper {
+    height: 50vh;
+    padding: 10px;
+    margin: 0;
+    border-radius: 10px;
+  }
+}
+.session-video-player-wrapper {
+  position: relative;
+  .video-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: red;
+  }
+}
+
+.session-todo-list {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+
+  .todo-item {
+    height: 100%;
+    overflow: scroll;
+  }
+}
