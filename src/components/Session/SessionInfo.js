@@ -6,7 +6,7 @@ export default function SessionInfo({ value }) {
   return (
     <div className="session-info">
       <Box h={10} className="sticky-header"></Box>
-      <div className="session-info-wrapper">
+      <div>
         <Image src={value.image} />
       </div>
     </div>

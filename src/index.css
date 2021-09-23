@@ -9,10 +9,7 @@ html {
   overflow: hidden;
 }
 body {
-  background-color: #f9f9ff;
-  font-family: "Sora", sans-serif;
-  font-size: 16px;
-  line-height: 1.7;
+  font-family: "Poppins", sans-serif;
   overflow: hidden;
 }
 
@@ -25,7 +22,7 @@ h6 {
   color: #000;
   font-weight: 700;
   margin: 20px 0;
-  font-family: "Sora", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 p {

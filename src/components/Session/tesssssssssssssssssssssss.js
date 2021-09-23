@@ -9,20 +9,20 @@ export default function StepCard({ value, mealId, activeId }) {
       ? { boxShadow: "0px 8px 24px rgba(149, 157, 165, 0.2)" }
       : { boxShadow: "none" };
 
-  // useEffect(() => {
-  //   if (value.id == activeId) {
-  //     console.log("hei");
-  //     cardRef.current.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // }, [activeId]);
+  useEffect(() => {
+    if (value.id == activeId) {
+      console.log("hei");
+      cardRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [activeId]);
 
-  // const dispatch = useDispatchRecipe();
-  // const updateToDone = () => {
-  //   dispatch({
-  //     type: "UPDATE STEP",
-  //     data: { mealId: mealId, stepId: value.id },
-  //   });
-  // };
+  const dispatch = useDispatchRecipe();
+  const updateToDone = () => {
+    dispatch({
+      type: "UPDATE STEP",
+      data: { mealId: mealId, stepId: value.id },
+    });
+  };
   return (
     <Box ref={cardRef}>
       <Text size="xs" fontWeight="600" marginBottom="10px">

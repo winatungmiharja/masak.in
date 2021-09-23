@@ -26,12 +26,6 @@
     border-top-right-radius: 10px;
     overflow-y: hidden;
   }
-  .session-info-wrapper {
-    height: 50vh;
-    padding: 10px;
-    margin: 0;
-    border-radius: 10px;
-  }
 }
 .session-video-player-wrapper {
   position: relative;
@@ -42,16 +36,5 @@
     right: 0;
     bottom: 0;
     background-color: red;
-  }
-}
-
-.session-todo-list {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-
-  .todo-item {
-    height: 100%;
-    overflow: scroll;
   }
 }
