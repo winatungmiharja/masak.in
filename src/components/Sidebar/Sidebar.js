@@ -84,9 +84,9 @@ export default function Sidebar() {
               display={navSize == "small" ? "none" : "flex"}
             >
               <Heading as="h3" size="sm">
-                Sylwia Weller
+                Wina Tungm
               </Heading>
-              <Text color="gray">Admin</Text>
+              <Text color="gray">Orang</Text>
             </Flex>
           </Flex>
         </Flex>

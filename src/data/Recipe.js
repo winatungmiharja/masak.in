@@ -80,7 +80,7 @@ const updateTodo = (state, data) => {
     if (item.id === data.mealId) {
       let newIngredients = item.ingredients.map((ingredient) => {
         if (ingredient.id === data.todoId) {
-          return { ...ingredient, checked: true };
+          return { ...ingredient, checked: !data.isChecked };
         } else return { ...ingredient };
       });
       return { ...item, ingredients: newIngredients };
