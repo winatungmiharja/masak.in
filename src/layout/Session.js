@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useDisclosure } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import { useRecipe, findRecipeData } from "../data/Recipe";
 import Split from "react-split";
-import "./Session.scss";
+import { useRecipe, findRecipeData } from "../data/Recipe";
+import { useDisclosure } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react";
+import "./Session.scss";
 import SessionInfo from "../components/Session/SessionInfo";
 import SessionTodoList from "../components/Session/SessionTodoList";
 import SessionVideo from "../components/Session/SessionVideo";

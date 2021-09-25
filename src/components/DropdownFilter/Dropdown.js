@@ -1,22 +1,26 @@
-import { Select, Text } from "@chakra-ui/react";
-import { useEffect } from "react";
+import { Select } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { FetchArea } from "../../data/Fetch";
 
-const Dropdown = () => {
-    useEffect (() => {
-        // fetch("www.themealdb.com/api/json/v1/1/list.php?a=list")
-        // .then((respond) => respond.json())
-        // .then((data) => console.log(data));
-        FetchArea().then(console.log);
-    })
-    
-    return (
-        <Select variant="filled" placeholder="Filled">
-            <option value="option1"></option>
-            <option value="option2"></option>
-            <option value="option3"></option>
-        </Select>
-    );
-}
+const Dropdown = ({ filter, setFilter }) => {
+  const [area, setArea] = useState([]);
+
+  useEffect(() => {
+    FetchArea().then((data) => setArea(data.meals));
+  }, []);
+
+  return (
+    <Select variant="filled" placeholder="Filled" value={filter}>
+      {area.length > 0 &&
+        area.map((item, i) => {
+          return (
+            <option value={`option${i + 1}`} key={i} onClick={() => console.log(item.strArea)}>
+              {item.strArea}
+            </option>
+          );
+        })}
+    </Select>
+  );
+};
 
 export default Dropdown;

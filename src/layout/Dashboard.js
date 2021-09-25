@@ -1,11 +1,7 @@
-import { useEffect, useState } from "react";
-
-import { useDispatchRecipe } from "../data/Recipe";
-import { FetchRecipe } from "../data/Fetch";
-import { useRecipe } from "../data/Recipe";
+import { useState, useEffect } from "react";
 import { Flex } from "@chakra-ui/react";
+import { useRecipe } from "../data/Recipe";
 import RecipeCard from "../components/RecipeCard/RecipeCard";
-import SkeletonElement from "../components/Skeleton/SkeletonElement";
 import Dropdown from "../components/DropdownFilter/Dropdown";
 
 const dashboardStyle = {
@@ -14,20 +10,30 @@ const dashboardStyle = {
   gap: "20px",
   overflowX: "hidden",
 };
-const Dashboard = ({ recipes, isFetchingData }) => {
+
+const Dashboard = () => {
   const Recipes = useRecipe();
+  const [filter, setFilter] = useState("");
+  const [filteredRecipes, setFilteredRecipes] = useState([]);
+
+  useEffect(() => {
+    let newFilteredRecipes = [];
+    if (filter) 
+      newFilteredRecipes = Recipes.filter(item => item.area === filter);
+    else
+      newFilteredRecipes = [...Recipes];
+    setFilteredRecipes(newFilteredRecipes);
+  }, [filter]);
 
   return (
     <div>
       <Flex>
-        <Dropdown />
+        <Dropdown filter={filter} setFilter={setFilter}/>
       </Flex>
       <div style={dashboardStyle}>
-        {
-          Recipes.map((item) => {
-            return <RecipeCard recipe={item} key={item.id} />;
-          })
-        }
+        {filteredRecipes.map((item) => {
+          return <RecipeCard recipe={item} key={item.id} />;
+        })}
       </div>
     </div>
   );
