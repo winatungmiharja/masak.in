@@ -14,7 +14,7 @@ export default function SessionStep({
   onCompleted,
 }) {
   const [active, setActive] = useState(0);
-
+  const blurStyle = isIngredientCompleted ? "scroll" : "hidden";
   const totalSteps = value.length;
   const nextCard = () => {
     if (active < totalSteps - 1) setActive(active + 1);
@@ -62,8 +62,7 @@ export default function SessionStep({
         padding="30px"
         paddingTop="5px"
         height="auto"
-        // overflowY="scroll"
-        overflowY="scroll"
+        overflowY={blurStyle}
         overflowX="hidden"
         d="grid"
         gridTemplateColumns="1fr"
