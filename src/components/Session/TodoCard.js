@@ -1,11 +1,11 @@
+import { useState } from "react";
 import { useDispatchRecipe } from "../../data/Recipe";
 import "./Session.scss";
 import { Box, Text, Image, Checkbox, Spacer } from "@chakra-ui/react";
 
-export default function TodoCard({ value, mealId }) {
+export default function TodoCard({ value, mealId, disabled }) {
   const dispatch = useDispatchRecipe();
   const updateTodo = () => {
-    console.log(value.checked);
     dispatch({
       type: "UPDATE TODO",
       data: { mealId: mealId, todoId: value.id, isChecked: value.checked },
@@ -28,7 +28,22 @@ export default function TodoCard({ value, mealId }) {
         </Text>
       </Box>
       <Spacer />
-      <Checkbox size="lg" colorScheme="orange" onChange={updateTodo} />
+      {disabled ? (
+        <Checkbox
+          size="lg"
+          colorScheme="orange"
+          isChecked={value.checked}
+          disabled={disabled}
+        />
+      ) : (
+        <Checkbox
+          size="lg"
+          colorScheme="orange"
+          onChange={updateTodo}
+          isChecked={value.checked}
+          disabled={disabled}
+        />
+      )}
     </Box>
   );
 }

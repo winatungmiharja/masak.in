@@ -6,24 +6,18 @@ import { useRecipe } from "../data/Recipe";
 import { Flex } from "@chakra-ui/react";
 import RecipeCard from "../components/RecipeCard/RecipeCard";
 import SkeletonElement from "../skeletons/SkeletonElement";
-import "./Dashboard.scss";
 
-const Dashboard = () => {
-  const [isFetchingData, setIsFetchingData] = useState(1);
-  const dispatch = useDispatchRecipe();
-
-  useEffect(() => {
-    FetchRecipe().then((data) =>
-      setTimeout(() => {
-        dispatch({ type: "FETCH", data: data.meals });
-        setIsFetchingData(false);
-      }, 20)
-    );
-  }, []);
-
+const dashboardStyle = {
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr 1fr 1fr",
+  gap: "20px",
+  overflowX: "hidden",
+};
+const Dashboard = ({ recipes, isFetchingData }) => {
   const Recipes = useRecipe();
+
   return (
-    <div className="dashboard-wrapper">
+    <div style={dashboardStyle}>
       {isFetchingData ? (
         // <p>Loading Data....</p>
         <div>

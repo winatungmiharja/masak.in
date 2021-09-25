@@ -47,7 +47,7 @@ const fetchRecipe = (state, data) => {
       category: item.strCategory,
       area: item.strArea,
       instructions: selectInstructions(item.strInstructions),
-      tags: item.strTags ? item.strTags.split(",") : "no tags", //tags nya banyak, atau tidak ada
+      tags: item.strTags ? item.strTags.split(",") : ["no tags"], //tags nya banyak, atau tidak ada
       image: item.strMealThumb,
       youtube: item.strYoutube,
       ingredients: selectIngredients(item),
@@ -91,6 +91,20 @@ const updateTodo = (state, data) => {
   return [...newState];
 };
 
+const updateAll = (state, data) => {
+  const newState = state.map((item) => {
+    if (item.id === data.mealId) {
+      let newIngredients = item.ingredients.map((ingredient) => {
+        return { ...ingredient, checked: !data.isChecked };
+      });
+      return { ...item, ingredients: newIngredients };
+    } else {
+      return { ...item };
+    }
+  });
+  return [...newState];
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH":
@@ -99,6 +113,8 @@ const reducer = (state, action) => {
       return updateStep(state, action.data);
     case "UPDATE TODO":
       return updateTodo(state, action.data);
+    case "UPDATE ALL":
+      return updateAll(state, action.data);
     default:
       return state;
   }

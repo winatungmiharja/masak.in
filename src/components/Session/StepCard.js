@@ -6,7 +6,10 @@ export default function StepCard({ value, mealId, activeId }) {
   let cardRef = useRef();
   let boxStyle =
     value.id == activeId
-      ? { boxShadow: "0px 8px 24px rgba(149, 157, 165, 0.2)" }
+      ? {
+          boxShadow: "0px 8px 24px rgba(149, 157, 165, 0.2)",
+          backgroundColor: "#ffe2ca",
+        }
       : { boxShadow: "none" };
 
   useEffect(() => {
@@ -36,11 +39,13 @@ export default function StepCard({ value, mealId, activeId }) {
         borderColor="#F2F2F2"
         style={boxStyle}
         d="flex"
-        padding="15px"
         borderWidth="1px"
         borderRadius="xl"
       >
-        <Text fontWeight="normal">{value.step}</Text>
+        {value.id == activeId && <Box backgroundColor=""></Box>}
+        <Box padding="15px">
+          <Text fontWeight="normal">{value.step}</Text>
+        </Box>
       </Box>
     </Box>
   );

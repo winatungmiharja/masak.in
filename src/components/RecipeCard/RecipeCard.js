@@ -1,50 +1,61 @@
-import { Box, Button, Image, Flex, Badge, Text } from "@chakra-ui/react";
+import { Box, Button, Image, Flex, Badge, Text, Wrap } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 // import { MdStar } from "react-icons/md";
 
 const RecipeCard = ({ recipe }) => {
+  console.log(recipe);
   return (
     <>
-      <Box p="5" borderWidth="1px">
-        <Image borderRadius="md" src={recipe.image} />
-        <Flex align="baseline" mt={2}>
-          <Badge colorScheme="pink">Plus</Badge>
-          <Text
-            ml={2}
-            textTransform="uppercase"
-            fontSize="sm"
-            fontWeight="bold"
-            color="pink.800"
-          >
-            Verified &bull; Cape Town
+      <Box p="5" borderWidth="1px" borderRadius="20px">
+        <Link to={`/home/session/${parseInt(recipe.id)}`}>
+          <Image borderRadius="md" src={recipe.image} />
+          <Flex align="baseline" mt={2}>
+            <Wrap spacing="5px">
+              <Badge colorScheme="purple" borderRadius="7px" padding="0px 4px">
+                {recipe.area}
+              </Badge>
+              <Badge colorScheme="orange" borderRadius="7px" padding="0px 4px">
+                {recipe.category}
+              </Badge>
+            </Wrap>
+          </Flex>
+          <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
+            {recipe.name}
           </Text>
-        </Flex>
-        <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
-          {recipe.name}
-        </Text>
-        <Text mt={2}>$119/night</Text>
-        <Flex mt={2} align="center">
-          {/* <Box as={MdStar} color="orange.400" /> */}
-          <Text ml={1} fontSize="sm">
-            <b>"{recipe.id}"</b> (190)
+          <Text mb={2}>
+            {`${recipe.ingredients.length} Ingredients`} &bull;{" "}
+            {`${recipe.instructions.length} Steps`}
           </Text>
-
-          <Link to={`/home/session/${parseInt(recipe.id)}`}>
-            {" "}
-            <Button
-              display={{ base: "none", md: "inline-flex" }}
-              fontSize={"sm"}
-              fontWeight={600}
-              color={"white"}
-              bg={"pink.400"}
-              _hover={{
-                bg: "pink.300",
-              }}
-            >
-              Ke Session
-            </Button>
-          </Link>
-        </Flex>
+          <Wrap>
+            {recipe.tags.map((item, i) => {
+              if (i < 2) {
+                return (
+                  <Badge
+                    colorScheme="yellow"
+                    borderRadius="7px"
+                    padding="0px 4px"
+                    variant="outline"
+                    key={i}
+                  >
+                    {item}
+                  </Badge>
+                );
+              } else if (i === 2) {
+                return (
+                  <Text
+                    colorScheme="yellow"
+                    borderRadius="7px"
+                    padding="0px 4px"
+                    variant="outline"
+                    key={i}
+                  >
+                    & {recipe.tags.length - 2} more
+                  </Text>
+                );
+              }
+            })}
+          </Wrap>
+        </Link>
       </Box>
     </>
   );
