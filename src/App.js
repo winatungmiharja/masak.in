@@ -7,6 +7,7 @@ import Session from "./layout/Session";
 import Dashboard from "./layout/Dashboard";
 import Sidebar from "./components/Sidebar/Sidebar.js";
 import { Menu } from "react-feather";
+import Skeleton from "./components/Skeleton/Skeleton";
 const App = () => {
   const [isFetchingData, setIsFetchingData] = useState(true);
   const dispatch = useDispatchRecipe();
@@ -15,7 +16,7 @@ const App = () => {
       setTimeout(() => {
         dispatch({ type: "FETCH", data: data.meals });
         setIsFetchingData(false);
-      }, 20)
+      }, 2000)
     );
   }, []);
   return (
@@ -30,13 +31,15 @@ const App = () => {
         padding="20px"
         margin="20px"
       >
-        {isFetchingData === false && (
+        {isFetchingData === false ? (
           <Router>
             <Switch>
               <Route path="/home/dashboard" render={(props) => <Dashboard />} />
               <Route path="/home/session/:id" render={(props) => <Session />} />
             </Switch>
           </Router>
+        ) : (
+          <Skeleton/>
         )}
       </Grid>
     </Flex>

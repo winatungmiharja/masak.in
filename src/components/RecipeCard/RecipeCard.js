@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // import { MdStar } from "react-icons/md";
 
 const RecipeCard = ({ recipe }) => {
-  console.log(recipe);
+  // console.log(recipe);
   return (
     <>
       <Box p="5" borderWidth="1px" borderRadius="20px">

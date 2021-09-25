@@ -12,7 +12,6 @@ const SkeletonElement = ({ type }) => {
         <div className="skeleton text1"/>
         <div className="skeleton title"/>
         <div className="skeleton text2"/>
-        <div className="skeleton button"/>
       </Box>
 		</div>
   )
