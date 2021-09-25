@@ -5,6 +5,7 @@ import { FetchRecipe } from "../data/Fetch";
 import { useRecipe } from "../data/Recipe";
 import { Flex } from "@chakra-ui/react";
 import RecipeCard from "../components/RecipeCard/RecipeCard";
+import SkeletonElement from "../skeletons/SkeletonElement";
 import "./Dashboard.scss";
 
 const Dashboard = () => {
@@ -24,7 +25,12 @@ const Dashboard = () => {
   return (
     <div className="dashboard-wrapper">
       {isFetchingData ? (
-        <p>Loading Data....</p>
+        // <p>Loading Data....</p>
+        <div>
+          <SkeletonElement/>
+          <SkeletonElement/>
+          <SkeletonElement/>
+        </div>
       ) : (
         Recipes.map((item) => {
           return <RecipeCard recipe={item} key={item.id} />;
