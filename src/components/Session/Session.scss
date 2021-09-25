@@ -14,27 +14,38 @@
   opacity: 0.5;
   border-radius: 10px;
 }
-.session-info {
-  overflow-y: auto;
-  .sticky-header {
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    overflow-y: hidden;
+
+.video-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+}
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.session-info-content {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 60px;
+  padding: 0.4em 1.5em;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  transform: scale(0.9);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.164);
+  box-shadow: 0 0 20px tgba(0, 0, 0, 0.144);
+  overflow: hidden;
+  transition: all 0.4s;
+
+  &:hover {
+    height: 170px;
   }
 }
-.session-video-player-wrapper {
-  position: relative;
-  .video-loader {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: red;
-  }
+
+.rotate-button {
+  transform: rotate(135deg);
 }
