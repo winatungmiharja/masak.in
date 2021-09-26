@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { FetchRecipe } from "./data/Fetch";
 import { useDispatchRecipe } from "./data/Recipe";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Flex, IconButton, Text, Grid } from "@chakra-ui/react";
+import { Flex, Grid, Text } from "@chakra-ui/react";
+import Sidebar from "./components/Sidebar/Sidebar.js";
+import Skeleton from "./components/Skeleton/Skeleton";
 import Session from "./layout/Session";
 import Dashboard from "./layout/Dashboard";
-import Sidebar from "./components/Sidebar/Sidebar.js";
-import { Menu } from "react-feather";
+
 const App = () => {
   const [isFetchingData, setIsFetchingData] = useState(true);
   const dispatch = useDispatchRecipe();
@@ -29,14 +30,17 @@ const App = () => {
         borderRadius="20px"
         padding="20px"
         margin="20px"
+        overflowY="scroll"
       >
-        {isFetchingData === false && (
+        {isFetchingData === false ? (
           <Router>
             <Switch>
               <Route path="/home/dashboard" render={(props) => <Dashboard />} />
               <Route path="/home/session/:id" render={(props) => <Session />} />
             </Switch>
           </Router>
+        ) : (
+          <Skeleton />
         )}
       </Grid>
     </Flex>

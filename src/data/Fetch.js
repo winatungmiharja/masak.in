@@ -10,3 +10,14 @@ export const FetchRecipe = async () => {
     return error;
   }
 };
+
+export const FetchData = async (url) => {
+  try {
+    const request = await fetch(url);
+    const data = request.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+};
