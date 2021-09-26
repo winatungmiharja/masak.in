@@ -53,19 +53,22 @@ export default function Sidebar() {
               else changeNavSize("small");
             }}
           />
+
           <SidebarItem
             navSize={navSize}
             icon={Home}
             title="Dashboard"
             description="This is the description for the dashboard."
+            to="/dashboard"
             active
           />
-          <SidebarItem navSize={navSize} icon={Bookmark} title="Meals" />
-          {/* <SidebarItem navSize={navSize} icon={Calendar} title="Calendar" />
-          <SidebarItem navSize={navSize} icon={User} title="Clients" />
-          <SidebarItem navSize={navSize} icon={DollarSign} title="Stocks" />
-          <SidebarItem navSize={navSize} icon={Briefcase} title="Reports" />
-          <SidebarItem navSize={navSize} icon={Settings} title="Settings" /> */}
+
+          <SidebarItem
+            navSize={navSize}
+            icon={Bookmark}
+            title="Meals"
+            to="/apapun"
+          />
         </Flex>
 
         <Flex

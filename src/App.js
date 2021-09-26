@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { FetchRecipe } from "./data/Fetch";
 import { useDispatchRecipe } from "./data/Recipe";
-import { Flex, Grid } from "@chakra-ui/react";
+import { Flex, Grid, Text } from "@chakra-ui/react";
 import Sidebar from "./components/Sidebar/Sidebar.js";
 import Skeleton from "./components/Skeleton/Skeleton";
 import Session from "./layout/Session";
@@ -30,6 +30,7 @@ const App = () => {
         borderRadius="20px"
         padding="20px"
         margin="20px"
+        overflowY="scroll"
       >
         {isFetchingData === false ? (
           <Router>

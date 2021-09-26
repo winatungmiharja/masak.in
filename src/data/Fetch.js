@@ -11,11 +11,9 @@ export const FetchRecipe = async () => {
   }
 };
 
-export const FetchArea = async () => {
+export const FetchData = async (url) => {
   try {
-    const request = await fetch(
-      "https://www.themealdb.com/api/json/v1/1/list.php?a=list"
-    );
+    const request = await fetch(url);
     const data = request.json();
     return data;
   } catch (error) {

@@ -1,21 +1,44 @@
 import { Select } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { FetchArea } from "../../data/Fetch";
+import { FetchData } from "../../data/Fetch";
 
-const Dropdown = ({ filter, setFilter }) => {
-  const [area, setArea] = useState([]);
+const optionStyle = {
+  fontFamily: "Poppins, sans-serif",
+  fontSize: "12px",
+  borderWidth: "0",
+};
+const selectStyle = {
+  fontFamily: "Poppins, sans-serif",
+  fontSize: "12px",
+  padding: "10px",
+  borderRadius: "12px",
+  backgroundColor: "inherit",
+};
+
+const Dropdown = ({ filter, setFilter, url, type, data }) => {
+  const [item, setItem] = useState([]);
 
   useEffect(() => {
-    FetchArea().then((data) => setArea(data.meals));
+    FetchData(url).then((data) => {
+      setItem(data.meals);
+      setFilter("");
+    });
   }, []);
 
   return (
-    <Select variant="filled" placeholder="Filled" value={filter}>
-      {area.length > 0 &&
-        area.map((item, i) => {
+    <Select
+      style={selectStyle}
+      maxWidth="200px"
+      variant="none"
+      placeholder={type}
+      value={filter}
+      onChange={(e) => setFilter(e.target.value)}
+    >
+      {item.length > 0 &&
+        item.map((item, i) => {
           return (
-            <option value={`option${i + 1}`} key={i} onClick={() => console.log(item.strArea)}>
-              {item.strArea}
+            <option value={item.strArea} key={i} style={optionStyle}>
+              {item[data]}
             </option>
           );
         })}
