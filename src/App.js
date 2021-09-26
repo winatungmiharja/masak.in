@@ -16,7 +16,7 @@ const App = () => {
       setTimeout(() => {
         dispatch({ type: "FETCH", data: data.meals });
         setIsFetchingData(false);
-      }, 2000)
+      }, 20)
     );
   }, []);
   return (

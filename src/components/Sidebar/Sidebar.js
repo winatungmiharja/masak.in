@@ -53,7 +53,6 @@ export default function Sidebar() {
               else changeNavSize("small");
             }}
           />
-
           <SidebarItem
             navSize={navSize}
             icon={Home}
