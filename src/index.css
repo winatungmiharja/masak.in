@@ -47,15 +47,6 @@ p {
   font-size: 12px;
 }
 
-a {
-  color: #ff4c60;
-  outline: 0;
-  transition: all 0.3s ease-in-out;
-}
-a:hover {
-  color: #f9f9ff;
-  text-decoration: none;
-}
 .sidebar {
   position: sticky;
   top: 0;
