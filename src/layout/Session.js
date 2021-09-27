@@ -1,21 +1,23 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 import Split from "react-split";
+
+import { useParams } from "react-router-dom";
+import { useDisclosure, Box } from "@chakra-ui/react";
 import { useRecipe, findRecipeData } from "../data/Recipe";
-import { useDisclosure } from "@chakra-ui/react";
-import { Box } from "@chakra-ui/react";
-import "./Session.scss";
+
 import SessionInfo from "../components/Session/SessionInfo";
 import SessionTodoList from "../components/Session/SessionTodoList";
 import SessionVideo from "../components/Session/SessionVideo";
 import SessionStep from "../components/Session/SessionStep";
 import SessionModal from "../components/Session/SessionModal";
+import "./Session.scss";
 
 const Session = () => {
   let data = findRecipeData(useRecipe(), useParams().id);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isVideoMode, setIsVideoMode] = useState(false);
   const [isStepMode, setIsStepMode] = useState(false);
+
   const [allSize, setAllSize] = useState([50, 50]);
   const [leftSize, setLeftSize] = useState([40, 60]);
   const [rightSize, setRightSize] = useState([50, 50]);

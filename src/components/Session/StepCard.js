@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { useDispatchRecipe } from "../../data/Recipe";
-import { Box, Text, Image, Checkbox, Spacer, Heading } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 
 export default function StepCard({ value, mealId, activeId }) {
   let cardRef = useRef();

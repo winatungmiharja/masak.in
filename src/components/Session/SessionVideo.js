@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Button, Wrap } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 import { Maximize, Minimize, PlayCircle } from "react-feather";
 import ReactPlayer from "react-player";
 import "./Session.scss";

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   Modal,
   ModalOverlay,
@@ -12,7 +13,6 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { ArrowRightCircle } from "react-feather";
-import { Link } from "react-router-dom";
 import "./Session.scss";
 
 const modalStyle = {

@@ -1,4 +1,4 @@
-import { Box, Button, Image, Flex, Badge, Text, Wrap } from "@chakra-ui/react";
+import { Box, Image, Flex, Badge, Text, Wrap } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const RecipeCard = ({ recipe }) => {

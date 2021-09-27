@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Box, Text, Flex, Spacer, Button } from "@chakra-ui/react";
-import { ArrowRightCircle, CornerLeftUp } from "react-feather";
-import { Maximize2, Minimize2 } from "react-feather";
+import {
+  ArrowRightCircle,
+  CornerLeftUp,
+  Maximize2,
+  Minimize2,
+} from "react-feather";
 import StepCard from "./StepCard";
 import "./Session.scss";
 

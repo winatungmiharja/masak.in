@@ -1,14 +1,14 @@
-import { grid } from "@chakra-ui/styled-system";
 import SkeletonElement from "./SkeletonElement";
 
 const SkeletonStyle = {
   display: "grid",
-  gridTemplateColumns: "1fr 1fr 1fr 1fr"
-}
+  gridTemplateColumns: "1fr 1fr 1fr 1fr",
+  overflow: "hidden",
+};
 
 const Skeleton = () => {
   return (
-    <div style={ SkeletonStyle }>
+    <div style={SkeletonStyle}>
       <SkeletonElement />
       <SkeletonElement />
       <SkeletonElement />
@@ -19,6 +19,6 @@ const Skeleton = () => {
       <SkeletonElement />
     </div>
   );
-}
+};
 
 export default Skeleton;

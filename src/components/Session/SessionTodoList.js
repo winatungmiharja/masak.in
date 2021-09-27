@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Flex, Spacer, Box, Text, Checkbox, Button } from "@chakra-ui/react";
-import { useDispatchRecipe } from "../../data/Recipe";
 import { Lock, Unlock } from "react-feather";
+import { useDispatchRecipe } from "../../data/Recipe";
+
+import { Flex, Spacer, Box, Text, Checkbox, Button } from "@chakra-ui/react";
 import TodoCard from "./TodoCard";
 import "./Session.scss";
 export default function SessionTodoList({
