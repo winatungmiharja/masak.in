@@ -5,7 +5,6 @@ import ReactPlayer from "react-player";
 import "./Session.scss";
 
 export default function SessionVideo({ value, toggleWindow, isVideoMode }) {
-  const [isVideoReady, setIsVideoReady] = useState(false);
   return (
     <Box
       position="relative"

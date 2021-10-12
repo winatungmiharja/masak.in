@@ -1,14 +1,5 @@
-import {
-  Box,
-  Badge,
-  Image,
-  Text,
-  Heading,
-  Flex,
-  Spacer,
-  Wrap,
-} from "@chakra-ui/react";
-import { Star, Paperclip, MoreVertical } from "react-feather";
+import { Box, Badge, Image, Text, Flex, Spacer, Wrap } from "@chakra-ui/react";
+import { Paperclip, MoreVertical } from "react-feather";
 import "./Session.scss";
 export default function SessionInfo({ value }) {
   return (

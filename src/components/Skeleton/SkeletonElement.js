@@ -1,4 +1,4 @@
-import { Box, Button, Image, Flex, Badge, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 // import react from 'react';
 import "./Skeleton.scss";
 

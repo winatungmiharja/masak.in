@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useDispatchRecipe } from "../../data/Recipe";
 import "./Session.scss";
 import { Box, Text, Image, Checkbox, Spacer } from "@chakra-ui/react";

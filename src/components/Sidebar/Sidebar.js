@@ -6,19 +6,9 @@ import {
   Divider,
   Avatar,
   Heading,
-  Box,
 } from "@chakra-ui/react";
 
-import {
-  Menu,
-  Bookmark,
-  Home,
-  Calendar,
-  User,
-  DollarSign,
-  Briefcase,
-  Settings,
-} from "react-feather";
+import { Menu, Bookmark, Home } from "react-feather";
 
 import SidebarItem from "./SidebarItem";
 
